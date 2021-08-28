@@ -1,31 +1,34 @@
-const express = require('express')
-const conn = require('./db')
-const router = require('./routes/index')
+const app = require('./server')
+const conn = require("./db");
 
-const PORT = 5000
-
-const app = express()
-
-
-app.use(express.json())
-app.use('/', router)
+const PORT = 5000;
 
 
 const start = () => {
-    try {
-        conn.connect(err => {
-            if (err) {
-                console.log(err)
-            } else {
-                console.log("DB connection success")
-            }
+  try {
+    conn.connect((err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        const query = `
+        CREATE TABLE IF NOT EXISTS urls (
+          id INT PRIMARY KEY AUTO_INCREMENT,
+          full_url VARCHAR(200),
+          short_url VARCHAR(50)
+        );
+        `
+        conn.query(query, (err, result) => {
+          if (err) console.log(err);
         })
-        app.listen(PORT, () => {
-            console.log("Server working on port " + PORT)
-        })
-    } catch (e) {
-        console.log(e)
-    }
-}
+        console.log("DB connection success");
+      }
+    });
+    app.listen(PORT, () => {
+      console.log("Server working on port " + PORT);
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
 
-start()
+start();

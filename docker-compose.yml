@@ -1,0 +1,40 @@
+version: "3.7"
+
+networks:
+  node-net:
+    driver: bridge
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
+    volumes:
+      - .:/app
+      - '/app/node_modules'
+    environment:
+      - REDIS_HOST=redis
+      - MYSQL_HOST=mysql_server
+    networks:
+      - node-net
+    depends_on:
+      - mysql_server
+      - redis
+
+  mysql_server:
+    image: mysql:8.0
+    environment:
+      - MYSQL_DATABASE=urlshortener
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PASSWORD=root
+    networks:
+      - node-net
+
+  redis:
+    image: 'bitnami/redis:latest'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    networks:
+      - node-net
