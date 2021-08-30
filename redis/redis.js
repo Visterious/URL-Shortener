@@ -1,8 +1,10 @@
-const redis = require("redis");
+/*global process*/
 
-const REDIS_PORT = process.env.REDIS_PORT || 6379;
-const REDIS_HOST = process.env.REDIS_HOST || '127.0.0.1';
+const redis = require('redis')
 
-const client = redis.createClient(REDIS_PORT, REDIS_HOST);
+const REDIS_PORT = process.env.REDIS_PORT || 6379
+const REDIS_HOST = process.env.REDIS_HOST || '127.0.0.1'
 
-module.exports = client;
+const client = redis.createClient(REDIS_PORT, REDIS_HOST)
+
+module.exports = client

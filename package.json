@@ -1,31 +1,31 @@
 {
-  "name": "URL_Shortener",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "nodemon index.js",
-    "test": "jest"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1",
-    "mysql": "^2.18.1",
-    "redis": "^3.1.2"
-  },
-  "devDependencies": {
-    "eslint": "^7.32.0",
-    "jest": "^27.1.0",
-    "nodemon": "^2.0.12",
-    "prettier": "^2.3.2",
-    "supertest": "^6.1.6"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "coveragePathIgnorePatterns": [
-      "/node_modules/"
-    ]
-  }
+    "name": "URL_Shortener",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon index.js",
+        "test": "jest"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1",
+        "mysql": "^2.18.1",
+        "redis": "^3.1.2"
+    },
+    "devDependencies": {
+        "eslint": "^7.32.0",
+        "jest": "^27.1.0",
+        "nodemon": "^2.0.12",
+        "prettier": "^2.3.2",
+        "supertest": "^6.1.6"
+    },
+    "jest": {
+        "testEnvironment": "node",
+        "coveragePathIgnorePatterns": [
+            "/node_modules/"
+        ]
+    }
 }
